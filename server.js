@@ -1,6 +1,18 @@
-var webservice = require('webservice'),
+var connect = require('connect'),
   less = require('less');
 
-webservice.createServer(less).listen(8080);
+connect(
+  connect.logger(),
+  
+  connect.router(function(app){
+    app.get('/user/:id', function(req, res, next){
+      // populates req.params.id
+      res.end('Hello ' + req.params.id);
+    });
+    app.put('/user/:id', function(req, res, next){
+      // populates req.params.id
+    });
+  })
+).listen(8080);
 
-console.log(' > stand-alone json webservice started on port 8080');
+console.log('Server running at http://localhost:8080');
