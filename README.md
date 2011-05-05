@@ -1,6 +1,6 @@
 # careless
 
-LESS rendering as a service.  Demo is deployed at [careless.duostack.net](http://careless.duostack.net).
+[LESS](http://lesscss.org/) CSS rendering as a service, built in NodeJS.  Demo is deployed at [careless.duostack.net](http://careless.duostack.net).
 
 ## GET /
 
@@ -16,7 +16,7 @@ Returns the rendered CSS.
 
 ### Example 1
 
-Post a string to `http://careless.duostack.net/render`
+Post some LESS a string to `http://careless.duostack.net/render`
 
     $ curl -d ".class { width: 1 + 1 }" "http://careless.duostack.net/render"
     
@@ -30,7 +30,8 @@ Post a string to `http://careless.duostack.net/render`
 
 Given a LESS file,
 
-    // styles.less
+    // style.less
+    
     @color: #4D926F;
     
     #header {

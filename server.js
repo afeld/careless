@@ -8,6 +8,7 @@ connect(
   
   connect.router(function(app){
     app.get('/', function(req, res, next){
+      // output the formatted README
       fs.readFile('README.md', function(err, data){
         res.end(md(data.toString()));
       });
@@ -22,7 +23,6 @@ connect(
       });
       
       req.addListener('end', function() {
-        
         // all POST data has been received - render the LESS!
         less.render(req.content, function (e, css) {
           res.end(css);
