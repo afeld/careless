@@ -4,15 +4,13 @@ LESS rendering as a service.  Demo is deployed at [careless.duostack.net](http:/
 
 ## GET /
 
-### Returns
-
 Returns this help page.
 
 ## POST /render
 
-### Params
-
 Returns the rendered CSS.
+
+### Params
 
 **(body)** - (required) your LESS stylesheet
 
