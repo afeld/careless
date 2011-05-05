@@ -21,6 +21,12 @@ Returns the rendered CSS.
 Post a string to `http://careless.duostack.net/render`
 
     $ curl -d ".class { width: 1 + 1 }" "http://careless.duostack.net/render"
+    
+    /* outputs: */
+    
+    .class {
+      width: 2;
+    }
 
 ### Example 2
 
@@ -40,7 +46,7 @@ post the file:
 
     $ curl -d @style.less "http://careless.duostack.net/render"
     
-    // outputs:
+    /* outputs: */
     
     #header {
       color: #4D926F;
