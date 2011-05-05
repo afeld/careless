@@ -1,4 +1,4 @@
-# careless
+# careLESS
 
 [LESS](http://lesscss.org/) CSS rendering as a service, built in NodeJS.  Demo is deployed at [careless.duostack.net](http://careless.duostack.net).
 
