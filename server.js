@@ -1,10 +1,18 @@
 var connect = require('connect'),
+  fs = require('fs'),
+  md = require("node-markdown").Markdown,
   less = require('less');
 
 connect(
   connect.logger(),
   
   connect.router(function(app){
+    app.get('/', function(req, res, next){
+      fs.readFile('README.md', function(err, data){
+        res.end(md(data.toString()));
+      });
+    });
+    
     app.post('/render', function(req, res, next){
       req.content = '';
       
