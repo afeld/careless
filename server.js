@@ -5,12 +5,21 @@ connect(
   connect.logger(),
   
   connect.router(function(app){
-    app.get('/user/:id', function(req, res, next){
-      // populates req.params.id
-      res.end('Hello ' + req.params.id);
-    });
-    app.put('/user/:id', function(req, res, next){
-      // populates req.params.id
+    app.post('/render', function(req, res, next){
+      req.content = '';
+      
+      // handle multipart POSTs
+      req.addListener('data', function(chunk) {
+        req.content += chunk;
+      });
+      
+      req.addListener('end', function() {
+        
+        // all POST data has been received - render the LESS!
+        less.render(req.content, function (e, css) {
+          res.end(css);
+        });
+      });
     });
   })
 ).listen(8080);
